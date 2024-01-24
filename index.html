@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="24style.css">
+    </head>
+    <body>
+    <div class="content">
+        <h2>Chapter 10. Open Topology Interface Network Operation</h2>
+        <p>
+            You can use the MultiSystem Manager Open topology feature to create your own topology agents and to manage diverse network resources, those resources not managed by other MultiSystem Manager topology features, for example.
+        </p>
+        <p>
+            You can also obtain applications from Tivoli Partner organizations that use the Open Topology Interface. Partner applications, that extend IBM Tivoli NetView for z/OS management to network and systems resources that are not managed by Tivoli features, are available.
+        </p>
+        <p>
+            This chapter explains using the views and command support to manage open networks. See IBM Tivoli NetView for z/OS Installation: Configuring Graphical Components for more information about creating Open topology agents. After you initialize network topology and status in RODM, the NetView management console provides views of your Open networks. Using the NetView management console pull-down menus, you can navigate among the views to isolate failures and send commands to resolve problems.
+        </p>
+        <hr> <!-- Horizontal line after the paragraph -->
+
+        <h2>Open Topology Interface View Objects</h2>
+        <p>
+            The Open Topology Interface can be used to display views containing any object in the IBM Tivoli NetView for z/OS Data Model Reference. The following Open objects are displayed in various Open views:
+        </p>
+        <ul>
+            <li>A group of Open networks</li>
+            <li>A single Open network</li>
+            <li>A collection of resources grouped by location, business organization, or network systems topology</li>
+            <li>Aggregate nodes</li>
+            <li>Real nodes</li>
+            <li>Aggregate links</li>
+            <li>Real links</li>
+        </ul>
+        <p>
+            Figure 16 on page 88 shows the various types of objects that are displayed when using the Open Data Model.
+        </p>
+        <figure>
+            <img src="image11.jpg" alt="Description">
+            <figcaption>Figure 16. Types of Open View Objects</figcaption>
+        </figure>
+        <hr> <!-- Horizontal line after the paragraph -->
+        <h2><strong>Finding Resources</strong></h2>
+        <p>
+            To find resources, access the Locate Resource window. From the NetView management console Tasks menu, select Locate Resource to open the Locate Resource window. From the Locate Resource window, you can locate a resource by its display name.
+        </p>
+        <hr> <!-- Horizontal line after the paragraph -->
+        <h2><strong>Navigating Network Views</strong></h2>
+        <p>
+            How you navigate an Open network depends on the views that are provided by your application. Open views can consist of different levels, as defined by the application used. By default, MultiSystem Manager creates 3 high-level objects for every Open Topology Interface application and displays them in two views. This topic illustrates the default set of views that are displayed when you navigate an example Open network. In this example, the application is named Open. The following GETTOPO command, sent to a topology agent with an LU name of NTB6I133, was used to build this set of views:<br>GETTOPO OPENRES, SP=NTB6I133, APPL=OPEN
+        </p>
+        <p>
+            To navigate the views, begin by selecting the default MultiSystem Manager network view, MultiSysView, in the NetView management console business tree. Figure 17 on page 89 shows the NetView management console network view named MultiSysView.
+        </p>
+        <figure>
+            <img src="image12.jpg"alt="Description">
+            <figcaption>Figure 17. NetView Management Console Default Network View (MultiSysView) Example</figcaption>
+        </figure>
+        <p>
+            The MultiSysView view consists of an aggregate object that represents all the Open networks that are defined in the initialization file that is used to initialize MultiSystem Manager. The name of this aggregate object is Open_Networks and the resource type is Group. From MultiSysView, you can select more detailed views that display your Open networks.
+        </p>
+        <hr> <!-- Horizontal line after the paragraph -->
+        <h2><strong>Viewing Open Networks</strong></h2>
+        <p>
+            The networks object is displayed in its own view, as shown in Figure 17. One or more pairs of network and manager objects are created as children of the networks object. A pair of these objects are shown in Figure 18 on page 90.
+        </p>
+        <h2>Open Networks View</h2>
+        <p>
+            MultiSystem Manager displays a separate Open network for each one defined in your initialization file. To view your Open networks on the NetView management console, select the OPEN_Networks object that is shown in Figure 17 and click More Detail. The resulting NetView management console view in this example, which is shown in Figure 18 on page 90, shows one Open networks object that contains one Open network object.
+        </p>
+        
+        <figure>
+            <img src="image13.jpg"alt="Description">
+            <figcaption>Figure 18. NetView Management Console Open Networks View (Open_Networks) Example</figcaption>
+        </figure>
+        
+        <p>MultiSystem Manager represents each Open network with two connected symbols:</p>
+        <ul>
+            
+            <li>A node aggregate object called a network aggregate, for example, NTB6I133_OPEN_Network.</li>
+            <li>An application real object called a manager, for example, NTB6I133_OPEN_Mgr.</li>
+        </ul>
+        
+        <p>
+            The network aggregate, NTB6I133_OPEN_Network, represents all the resources that are monitored by the Open application. The manager, NTB6I133_OPEN_Mgr, represents the topology agent residing in the Open application. The name of the agent is composed of the SNA service point address and the type of network the agent is managing (Open network).
+        </p>
+        
+        <p>
+            To view additional information about the Open network, select the Open manager and click Resource Properties. Figure 19 shows the resulting NetView management console Resource Properties window for the selected Open object.
+        </p>
+        
+        <figure>
+            <img src="image14.jpg" alt="Description">
+            <figcaption>Figure 19. NetView Management Console Open Topology Interface Resource Properties Window Example</figcaption>
+        </figure>
+        <p>
+            An Open Topology Interface application consists of one or more additional levels of views. These views can consist of real objects and aggregate objects with any of these objects shown linked together. See the information with each of your Open Topology Interface applications for a description of navigating the views that are contained in a network aggregate object.
+        </p>       
+    </div>
+</body>
+</html>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
